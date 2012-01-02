@@ -1,0 +1,18 @@
+{
+  "author": "Colin Ross <colin@colinscape.com> (http://colinscape.com/)",
+  "name": "bbc-daily-stories",
+  "description": "Get the BBC news stories for a specific day",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/colinscape/bbc-daily-stories.git"
+  },
+  "main": "bbc-daily-stories.coffee",
+  "engines": {
+    "node": "0.6.6"
+  },
+  "dependencies": {
+    "request": "2.9.3"
+  },
+  "devDependencies": {}
+}
