@@ -46,7 +46,8 @@ getResults = (offset, appId, date) ->
 
       if results
         for result in results
-          console.log result.DisplayUrl
+          if result.DisplayUrl.match /.*\-[0-9]+/
+            console.log result.DisplayUrl
 
         if (offset + results.length < total)
           getResults offset+results.length+1, appId, date
