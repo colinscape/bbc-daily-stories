@@ -16,12 +16,12 @@ months = [
   'December'
 ]
 
+urls = {}
+
 retrieve = (dateStr, appId) ->
 
   date = new Date dateStr
   getResults 0, appId, date
-
-
 
 
 getResults = (offset, appId, date) ->
@@ -40,17 +40,16 @@ getResults = (offset, appId, date) ->
       offset =  info.SearchResponse.Web.Offset
       results = info.SearchResponse.Web.Results
 
-      #console.log url
-      #console.log "#{offset} / #{results.length} / #{total}"
-      #console.log "====="
-
       if results
         for result in results
           if result.DisplayUrl.match /.*\-[0-9]+/
-            console.log result.DisplayUrl
-
+            urls[result.DisplayUrl] = result.DisplayUrl
+ 
         if (offset + results.length < total)
           getResults offset+results.length+1, appId, date
+        else
+          for url,dummy of urls
+            console.log url
 
 
 if not module.parent
